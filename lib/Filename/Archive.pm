@@ -142,8 +142,6 @@ sub check_archive_filename {
 =head1 DESCRIPTION
 
 
-=head1 TODO
-
 =head1 SEE ALSO
 
 L<Filename::Compressed>
