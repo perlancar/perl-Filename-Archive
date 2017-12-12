@@ -18,6 +18,8 @@ our %SUFFIXES = (
     '.zip' => {name=>'Zip'},
     '.rar' => {name=>'RAR'},
     '.tar' => {name=>'tar'},
+    '.tgz' => {name=>'tar+gzip'},
+    '.tbz' => {name=>'tar+bzip2'},
     # XXX 7zip
     # XXX older/less popular: ARJ, lha, zoo
     # XXX windows: cab
@@ -42,6 +44,10 @@ our %ARCHIVES = (
     RAR => {
     },
     tar => {
+    },
+    'tar+gzip' => {
+    },
+    'tar+bzip2' => {
     },
 );
 
