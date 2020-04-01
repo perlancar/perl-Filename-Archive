@@ -1,6 +1,8 @@
 package Filename::Archive;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use 5.010001;
@@ -15,19 +17,24 @@ our @EXPORT_OK = qw(check_archive_filename);
 # XXX multi-part archive?
 
 our %SUFFIXES = (
+    '.7z'  => {name=>'7-zip'},
     '.zip' => {name=>'Zip'},
     '.rar' => {name=>'RAR'},
     '.tar' => {name=>'tar'},
     '.tgz' => {name=>'tar+gzip'},
     '.tbz' => {name=>'tar+bzip2'},
-    # XXX 7zip
-    # XXX older/less popular: ARJ, lha, zoo
+    '.arj' => {name=>'arj'},
+    # XXX other older/less popular: lha, zoo
     # XXX windows: cab
     # XXX zip-based archives: war, etc
     # XXX tar-based archives: linux packages
 );
 
 our %ARCHIVES = (
+    'arj' => {
+    },
+    '7-zip' => {
+    },
     Zip => {
         # all programs mentioned here must accept filename(s) as arguments.
         # preferably CLI. XXX specify capabilities (password-protection, unix
