@@ -18,11 +18,23 @@ our @EXPORT_OK = qw(check_archive_filename);
 
 our %SUFFIXES = (
     '.7z'  => {name=>'7-zip'},
+    '.cb7'  => {name=>'7-zip'},
+
     '.zip' => {name=>'Zip'},
+    '.cbz' => {name=>'Zip'},
+
     '.rar' => {name=>'RAR'},
+    '.cbr' => {name=>'RAR'},
+
     '.tar' => {name=>'tar'},
+    '.cbt' => {name=>'tar'},
+
     '.tgz' => {name=>'tar+gzip'},
     '.tbz' => {name=>'tar+bzip2'},
+
+    '.ace' => {name=>'ACE'},
+    '.cba' => {name=>'ACE'},
+
     '.arj' => {name=>'arj'},
     # XXX other older/less popular: lha, zoo
     # XXX windows: cab
@@ -55,6 +67,11 @@ our %ARCHIVES = (
     'tar+gzip' => {
     },
     'tar+bzip2' => {
+    },
+    ace => {
+        extractor_programs => [
+            {name => 'unace', opts => ''},
+        ],
     },
 );
 
