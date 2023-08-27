@@ -104,7 +104,7 @@ _
 
 Return false if no archive suffixes detected. Otherwise return a hash of
 information, which contains these keys: `archive_name`, `archive_suffix`,
-`compressor_info`.
+`compressor_info`, `filename_without_suffix`.
 
 _
     },
@@ -130,8 +130,8 @@ sub check_archive_filename {
         }
     }
 
-    $filename =~ /(\.\w+)\z/ or return 0;
-    my $suffix = $1;
+    $filename =~ /(.+)(\.\w+)\z/ or return 0;
+    my ($filename_without_suffix, $suffix) = ($1, $2);
 
     my $spec;
     if ($ci) {
@@ -150,6 +150,7 @@ sub check_archive_filename {
     return {
         archive_name       => $spec->{name},
         archive_suffix     => $suffix,
+        filename_without_suffix => $filename_without_suffix,
         (compressor_info    => \@compressor_info) x !!@compressor_info,
     };
 }
