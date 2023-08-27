@@ -1,16 +1,16 @@
 package Filename::Archive;
 
+use 5.010001;
+use strict;
+use warnings;
+
+use Exporter 'import';
+
 # AUTHORITY
 # DATE
 # DIST
 # VERSION
 
-use 5.010001;
-use strict;
-use warnings;
-
-require Exporter;
-our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(check_archive_filename);
 #list_archive_suffixes
 
