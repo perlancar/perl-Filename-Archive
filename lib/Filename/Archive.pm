@@ -91,7 +91,7 @@ _
             pos => 0,
         },
         # XXX recurse?
-        ci => {
+        ignore_case => {
             summary => 'Whether to match case-insensitively',
             schema  => 'bool',
             default => 1,
@@ -108,6 +108,14 @@ information, which contains these keys: `archive_name`, `archive_suffix`,
 
 _
     },
+    examples => [
+        {
+            args => {filename=>'foo.tar.bz2'},
+        },
+        {
+            args => {filename=>'bar.Zip', ignore_case=>1},
+        },
+    ],
 };
 sub check_archive_filename {
     require Filename::Compressed;
@@ -115,7 +123,7 @@ sub check_archive_filename {
     my %args = @_;
 
     my $filename = $args{filename};
-    my $ci = $args{ci} // 1;
+    my $ci = $args{ignore_case} // 1;
 
     my @compressor_info;
     while (1) {
